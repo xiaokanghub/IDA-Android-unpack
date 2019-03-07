@@ -24,7 +24,16 @@
     
     
 
-
+```IDC
+static main(void)
+{
+    auto fp, dex_addr, end_addr;
+    fp = fopen(“F:\\dump.dex”, “wb”);
+    end_addr = r0 + r1;
+    for ( dex_addr = r0; dex_addr < end_addr; dex_addr ++ )
+        fputc(Byte(dex_addr), fp);
+}
+```
           
           
           
