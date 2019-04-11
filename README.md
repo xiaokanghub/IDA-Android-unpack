@@ -4,7 +4,7 @@
     将dbgsrv目录下的android_server，复制到手机/data/local/tmp/目录下，并添加777权限。如果你的手机是64系统，请复制android_server64，如果使用模拟机，请复制android_x86_server<br>
     adb shell >> ./data/local/tmp/android-server<br>
     adb forward tcp:23946 tcp:23946<br>
-    adb shell am start -D -n com.ali.tg.testapp/.MainActivity<br>
+    adb shell am start -D -n com.ali.tg.testapp/.MainActivity or adb shell am set-debug-app -w com.qihoo.camera<br>
     adb forward tcp:8700 jdwp:14243(PID)<br>
     IDA debugger attach<br>
     jdb -connect com.sun.jdi.SocketAttach:hostname=127.0.0.1,port=8700<br>
