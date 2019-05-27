@@ -5,9 +5,9 @@
     adb shell >> ./data/local/tmp/android-server<br>
     adb forward tcp:23946 tcp:23946<br>
     adb shell am start -D -n com.ali.tg.testapp/.MainActivity or adb shell am set-debug-app -w com.qihoo.camera<br>
-    adb forward tcp:8700 jdwp:14243(PID)<br>
+    adb forward tcp:8700 jdwp:14243(PID) or adb forward tcp:pid jdwp:pid <br>
     IDA debugger attach<br>
-    jdb -connect com.sun.jdi.SocketAttach:hostname=127.0.0.1,port=8700<br>
+    jdb -connect com.sun.jdi.SocketAttach:hostname=127.0.0.1,port=8700 or jdb -attach 127.0.0.1:pid<br>
     dvmDexFileOpenPartial下断DUMP<br>
     ```
     static main(void){
