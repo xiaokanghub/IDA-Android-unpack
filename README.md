@@ -9,15 +9,6 @@
     IDA debugger attach<br>
     jdb -connect com.sun.jdi.SocketAttach:hostname=127.0.0.1,port=8700 or jdb -attach 127.0.0.1:pid<br>
     dvmDexFileOpenPartial下断DUMP<br>
-    ```
-    static main(void){
-          auto fp, dex_addr, end_addr;
-          fp = fopen("F:\\dump.dex", "wb");  
-          end_addr = r0 + r1;   
-          for ( dex_addr=r0; dex_addr < end_addr; dex_addr ++ ) 
-          fputc(Byte(dex_addr), fp);
-          }
-          ```<br>
           以上是Dalvik模式(Android <= 4.2),ART模式(Android >= 5.0)：attach成功后，打开modules 搜索libart.so，然后在libart.so中搜索Openmemory函数并且跟进去。然后下断点。寄存器R1保存dex起始位，寄存器R2保存dex大小,脱壳脚本中需要R0改成R1，R1改成R2即可<br>
 #数字壳<br>
     [文献](https://blog.zimperium.com/dissecting-mobile-native-code-packers-case-study/)<br>
